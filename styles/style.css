@@ -29,19 +29,21 @@ body {
 
 
 .cell-black {
-  width: 5vw;
-  height: 5vw;
+ 
   background-color: black;
-  border: 1px solid black;  
+  
 }
   
  
 
 .cell-white {
+  
+  background-color: white;
+  
+}
+.cell {
   width: 5vw;
   height: 5vw;
   
-  border: 1px solid black; 
-  background-color: white;
-  
+  border: 1px solid red; 
 }
