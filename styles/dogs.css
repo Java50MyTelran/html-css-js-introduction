@@ -64,6 +64,9 @@ h2 {
 .details-title {
     display: block;
     background-color: aliceblue;
+    font-size: 2em;
+    font-family: airstream;
+    font-style: italic;
     position: absolute;
     bottom: 3.5vh;
     left: -2vw;
