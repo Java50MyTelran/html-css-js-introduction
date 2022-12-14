@@ -46,12 +46,22 @@ h2 {
     justify-content: center;
     flex-grow: 1;
 }
+.main-class.hidden {
+    /* --thumbnails-image-width: 30vw;
+    --thumbnails-image-height: 20vw;
+    --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.33); */
+    justify-content: space-around;
+    
+}
 .details-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 2vh;
     
+}
+.hidden .details-container {
+    display: none;
 }
 .details-frame {
     position: relative;
@@ -71,6 +81,11 @@ h2 {
     bottom: 3.5vh;
     left: -2vw;
 }
+#hide-button {
+    position: absolute;
+    right: 3vw;
+    top: 2.5vh;
+}
 .thumbnails-list {
     display: flex;
     flex-wrap: wrap;
@@ -81,6 +96,9 @@ h2 {
     padding-left: 0;
     margin-top: 3vh;
 }
+.hidden .thumbnails-list {
+max-height: 60vh;
+}
 .thumbnails-item {
     border: solid 2px blueviolet;
     margin-top: 2vh;
@@ -89,6 +107,7 @@ h2 {
     min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
     min-width: var(--thumbnails-image-width);
     max-width: var(--thumbnails-image-width);
+    max-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
     margin-left: 1vw;
 }
 .thumbnails-item:hover {
@@ -141,6 +160,12 @@ h2 {
         justify-content: flex-start;
        
 
+    }
+    .hidden .thumbnails-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-height: 75vh;
     }
    
 
