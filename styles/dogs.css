@@ -58,6 +58,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     margin-bottom: 2vh;
+    transition: 5s cubic-bezier(0.8, 2, 0.2, 1);
     
 }
 .hidden .details-container {
@@ -129,6 +130,10 @@ max-height: 60vh;
     color: black;
     height: var(--thumbnails-title-height);
     
+}
+.is-point {
+    transform: scale(0.001);
+   transition: 0s;
 }
 @media (min-width: 560px) {
     body {
