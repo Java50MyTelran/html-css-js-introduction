@@ -4,6 +4,7 @@ const detailsContainer = document.querySelector(".details-container");
 const anchorElements = document.querySelectorAll(".thumbnails-anchor")
 const mainElement = document.querySelector(".main-class");
 const hideButtonElement = document.getElementById("hide-button");
+const audio = document.querySelector('audio');
 const HIDDEN = "hidden";
 const IS_POINT = "is-point";
 function showDetails() {
@@ -23,6 +24,11 @@ function setDetails(anchor) {
     showDetails();
     detailsTitle.innerHTML = anchor.getAttribute("data-details-title");
     const color = anchor.getAttribute("data-text-color");
+    audio.src = anchor.getAttribute("data-details-bark");
+    audio.play();
+    setTimeout(function () {
+        audio.pause();
+    }, 3000)
     if (color) {
         detailsTitle.style.color = color;
     } else {
