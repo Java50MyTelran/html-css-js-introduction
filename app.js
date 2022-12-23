@@ -38,10 +38,8 @@ str = str.toLowerCase(); //"abcdtyg"
 function getDigitsSum(number) {
     //computes sum of all digits in the integer part of the number
     // number may be either negative or positive or 0
-    if (number < 0) {
-        number = -number;
-    }
-    number = Math.trunc(number);
+    number = Math.trunc(Math.abs(number));
+    
     let sum = 0;
     do {
         const digit = number % 10;
@@ -57,7 +55,15 @@ function computeExpression(expressionStr) {
     //task for searching in Internet
     //only one line code
     //how to use Internet for finding required code
-    const res = eval(expressionStr);
+    let res;
+    try{
+        res = eval(expressionStr);
+        
+    } catch(e) {
+        res =  NaN;
+    }
+    
+   
     return res;
 }
 //console.log(computeExpression("9000 / ((10 + 20) ** 2)")) ; //prints 10
@@ -109,7 +115,7 @@ console.log("result of getDigitsSum(123.45) is " + getDigitsSum(123.45));
 console.log("result of getDigitsSum(-280.123) is " + getDigitsSum(-280.123));
 console.log("result of getDigitsSum(123) is " + getDigitsSum(123));
 printAnanas();
-console.log("result of computeExpression('9000 / ((10 + 20) ** 2)') is " + computeExpression('9000 / ((10 + 20) ** 2)'));
+console.log("result of computeExpression('9000 / ((10 + 20) ** 2))') + 10 is " + (computeExpression('9000 / ((10 + 20) ** 2)') + 10));
 console.log("result of computeExpression('9 + 100 / 2') is " + computeExpression('9 + 100 / 2'));
 console.log("result of reverse(123.45) is " + reverse(123.45));
 console.log("result of reverse(-280.123) is " + reverse(-280.123));
