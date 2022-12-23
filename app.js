@@ -38,6 +38,18 @@ str = str.toLowerCase(); //"abcdtyg"
 function getDigitsSum(number) {
     //computes sum of all digits in the integer part of the number
     // number may be either negative or positive or 0
+    if (number < 0) {
+        number = -number;
+    }
+    number = Math.trunc(number);
+    let sum = 0;
+    do {
+        const digit = number % 10;
+        number = Math.trunc(number / 10);
+        sum += digit;
+
+    } while (number);
+    return sum;
 }
 function computeExpression(expressionStr) {
     //example of expression "9000 / ((10 + 20) ** 2)"
@@ -45,6 +57,8 @@ function computeExpression(expressionStr) {
     //task for searching in Internet
     //only one line code
     //how to use Internet for finding required code
+    const res = eval(expressionStr);
+    return res;
 }
 //console.log(computeExpression("9000 / ((10 + 20) ** 2)")) ; //prints 10
 //console.log(computeExpression("9 + 100 / 2")); //prints 59
@@ -52,6 +66,8 @@ function printAnanas() {
     //TODO 
     //To use only capital "A" "S"
     //print "ananas"
+    const res = ("A" + +"A" + "AS").toLowerCase();
+    console.log(res);
 }
 printAnanas() //there should be printed "ananas"
 
@@ -61,6 +77,17 @@ function reverse(number) {
     //consider only integer part, fractional part should be removed
     //example reverse(1234.56) should return "4321"
     //example reverse (-1234) should return "-4321"
+    let res = number < 0 ? "-" : "";
+    if (number < 0) {
+        number = -number;
+    }
+    number = Math.trunc(number);
+    do {
+        const digit = number % 10;
+        res += digit;
+        number = Math.trunc(number / 10);
+    }while(number);
+    return res;
 }
 let n = 10;
 let count = 0;
@@ -72,16 +99,27 @@ let count = 0;
 //   n--;
 //   count++
 // } while(n > 0);
-while(--n) {
+while (--n) {
     count++;
 }
 let d;
 // 3 + 7 * "10"
+//tests
+console.log("result of getDigitsSum(123.45) is " + getDigitsSum(123.45));
+console.log("result of getDigitsSum(-280.123) is " + getDigitsSum(-280.123));
+console.log("result of getDigitsSum(123) is " + getDigitsSum(123));
+printAnanas();
+console.log("result of computeExpression('9000 / ((10 + 20) ** 2)') is " + computeExpression('9000 / ((10 + 20) ** 2)'));
+console.log("result of computeExpression('9 + 100 / 2') is " + computeExpression('9 + 100 / 2'));
+console.log("result of reverse(123.45) is " + reverse(123.45));
+console.log("result of reverse(-280.123) is " + reverse(-280.123));
+console.log("result of reverse(123) is " + reverse(123));
+console.log("result of reverse(-123) is " + reverse(-123));
 
 
 
 
- 
+
 
 
 
