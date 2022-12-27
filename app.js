@@ -1,102 +1,50 @@
-
-function myParseInt(str, base) {
-    base = base || 10;
-    let res = NaN;
-    const firstIndex = str[0] === "-" ? 1 : 0;
-    let code = 1;
-    let index = firstIndex;
-    code = getCode(str[index], base);
-   if(code >= 0) {
-    res = code;
-    index++;
-   }
-    while (index < str.length && code >= 0) {
-        code = getCode(str[index], base);
-        if (code >= 0) {
-            res = res * base + code;
-        }
-        index++;
-
-    }
-    if (firstIndex === 1) {
-        res = -res;
-    }
-    return res;
+// const ar = [] ;
+// const ar1 = [1,2,3,4,]
+// ar.push(...ar1);
+// ar.push('abc');
+function getRandomNumber(min, max) {
+   
+    return min + Math.trunc(Math.random() * (max - min + 1));
 }
-function getCode(symbol, base) {
-    let res = -1; 
-    symbol = symbol.toLowerCase(); 
-    const codeA = 'a'.charCodeAt();
-    if((symbol <= '9' && symbol >= '0') || (symbol >= 'a' && symbol <= 'z')) {
-        res = symbol <= '9' ? +symbol : symbol.charCodeAt() - codeA + 10;
-        if (res >= base) {
-            res = -1;
+function getRandomMatrix(rows, columns, min, max){
+    const matrix = [];
+    for(let i = 0; i < rows; i++) {
+        matrix.push([]);
+        for (let j = 0; j < columns; j++) {
+            matrix[i].push(getRandomNumber(min, max))
         }
     }
-   
-   
-    
-    return res;
+    return matrix;
 }
+//const matrix = getRandomMatrix(3, 4, 0, 1);
+const ar10 = [1,2,3,4,5];
+const str =ar10.join('_');
 
-function myToString(number, base) {
-    let res = '';
-
-    base = base || 10;
-    const sign = number < 0 ? "-" : "";
-    number = Math.abs(number);
-    const integerPart = Math.trunc(Math.abs(number));
-   let fractinPart = number - integerPart;
-   fractinPart = fractinPart ? '.' +
-   convertFraictionPart(fractinPart, base) : '';
-    res = convertIntegerPart(integerPart, base) + fractinPart;
-   
-    return sign + res;
-
+//HTML
+//<ul class="list_class">
+//  <li class="item_class">
+//     <div class="white"> </div>
+//  </li>
+// .............
+//<li class="item_class">
+//     <div class="black"> </div>
+//  </li>
+//</ul>
+function getHtmlUl(array) {
+    //TODO
+    return htmlString;
 }
-function convertIntegerPart(number, base) {
-    let res = '';
-    do {
-        const digit = number % base;
-        const symbol = getSymbol(digit);
-        res = symbol + res;
-        number = Math.trunc(number / base);
-
-    } while (number);
-    return res;
+const strClass = getRandomNumber(0, 1) === 0 ? 'white' : 'black';
+const str1 = "hello world";
+const str2 = 'hello ' + '"world"';
+const str3 = `class="${strClass}"`;
+function matrixTransp(matrix) {
+    //TODO
+    //returns transp matrix
+    // matrix = [[1, 2], //input
+    //           [3, 4], 
+    //           [4, 5]        
+    //            ]
+    //  output   [1, 3, 4]
+    //           [2, 4, 5] 
 }
-function convertFraictionPart(number, base, precision) {
-    let res = '';
-    precision = precision || 7
-    let count = 0;
-    let intPart;
-    do {
-        
-        number *= base;
-        intPart = Math.trunc(number);
-        if (intPart != 0) {
-            if (count === precision && intPart >= base / 2) {
-                intPart++;
-            }
-            const symb = getSymbol(intPart);
-            res += symb;
-            number = number - intPart;
-        }
-        count++;
-
-    } while (intPart && count <= precision);
-    return res;
-}
-function getSymbol(digit) {
-    const codeA = 'a'.charCodeAt();
-    let symbol;
-    if (digit < 10) {
-        symbol = "" + digit;
-    } else {
-        const codeAscii = digit - 10 + codeA;
-        symbol = String.fromCharCode(codeAscii);
-    }
-    return symbol;
-
-}
-console.log(myToString(-1.1,36))
