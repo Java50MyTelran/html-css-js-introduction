@@ -44,10 +44,12 @@ function myToString(number, base) {
 
     base = base || 10;
     const sign = number < 0 ? "-" : "";
+    number = Math.abs(number);
     const integerPart = Math.trunc(Math.abs(number));
-    const fractinPart = number - integerPart;
-    res = convertIntegerPart(integerPart, base) + '.' +
-        convertFraictionPart(fractinPart, base);
+   let fractinPart = number - integerPart;
+   fractinPart = fractinPart ? '.' +
+   convertFraictionPart(fractinPart, base) : '';
+    res = convertIntegerPart(integerPart, base) + fractinPart;
    
     return sign + res;
 
@@ -73,7 +75,7 @@ function convertFraictionPart(number, base, precision) {
         number *= base;
         intPart = Math.trunc(number);
         if (intPart != 0) {
-            if (count == precision && intPart > base / 2) {
+            if (count === precision && intPart >= base / 2) {
                 intPart++;
             }
             const symb = getSymbol(intPart);
@@ -97,4 +99,4 @@ function getSymbol(digit) {
     return symbol;
 
 }
-console.log(myParseInt("-1012",10))
+console.log(myToString(-1.1,36))
