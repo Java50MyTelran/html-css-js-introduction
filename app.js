@@ -41,7 +41,7 @@ function getListItems(array) {
     for(let i = 0; i < array.length; i++) {
         res[i] = `
                 <li class="item_class">
-                    <div class=${array[i] === 0 ? "white" : "black"}>
+                    <div class="${array[i] === 0 ? "white" : "black"}">
                      </div>
                  </li>`
     }
