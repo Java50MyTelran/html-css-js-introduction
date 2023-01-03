@@ -31,8 +31,21 @@ const str =ar10.join('_');
 //  </li>
 //</ul>
 function getHtmlUl(array) {
-    //TODO
-    return htmlString;
+   
+    return `<ul class="list_class">
+      ${getListItems(array)}
+      </ul>`;
+}
+function getListItems(array) {
+    const res = [];
+    for(let i = 0; i < array.length; i++) {
+        res[i] = `
+                <li class="item_class">
+                    <div class=${array[i] === 0 ? "white" : "black"}>
+                     </div>
+                 </li>`
+    }
+    return res.join('');
 }
 const strClass = getRandomNumber(0, 1) === 0 ? 'white' : 'black';
 const str1 = "hello world";
@@ -47,4 +60,18 @@ function matrixTransp(matrix) {
     //            ]
     //  output   [1, 3, 4]
     //           [2, 4, 5] 
+    const res =[];
+    for(let i = 0; i < matrix[0].length; i++){
+        res[i] = [];
+        for(let j = 0; j < matrix.length; j++) {
+            res[i][j] = matrix[j][i];
+        }
+    }
+    return res;
 }
+const matrix = [[1, 2], 
+              [3, 4], 
+              [4, 5]        
+               ];
+//console.log(matrixTransp(matrix));
+console.log(getHtmlUl([0,1,1,0,0]))
