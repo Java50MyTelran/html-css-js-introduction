@@ -37,8 +37,21 @@ function coloringString(str1, str2) {
     //For getting array from string there is the following expression Array.from(string)
     //Examples: coloringString("pappy", "apple") => ["yellow","yellow", "green","red", "red"]
     //coloringString("pappy", "pappy") => ["green", "green", "green", "green", "green"]
-
+    const arStr2 = Array.from(str2);
+    const res = arStr2.map(function(symbol, index) {
+        let color;
+        if (symbol === str1[index]) {
+            color = "green";
+        } else  {
+            color = str1.includes(symbol) ? "yellow" : "red";
+        }
+        return color;
+    })
+    return res;
+    
 }
+// console.log(`coloringString("pappy", "apple") returns ${coloringString("pappy", "apple").join(' ')}` );
+// console.log(`coloringString("pappy", "pappy") returns ${coloringString("pappy", "pappy")}` );
 //getting array of numbers in a given range. Example as follows 
 // const min = 5;
 // const max = 15;
@@ -55,8 +68,20 @@ function getNumbersWithDigitsAmount(digitsAmount, array) {
     //returns array of only numbers from the given array comprising of the given number of digits
     //examples: 
     //getNumbersWithDigitsAmount(3, [1, 100, -100, 25, 1000]) returns [100, -100]
-}
+   
+    const res = array.filter(function(number) {
+        const nDigits = getNumberDigits(number);
+        return nDigits === digitsAmount ;
 
+    });
+    return res;
+}
+function getNumberDigits(number) {
+    number = Math.abs(Math.trunc(number));
+    const res = number.toString().length;
+    return res;
+}
+console.log(`getNumbersWithDigitsAmount(3, [1, 100, -100, 25, 1000]) returns ${getNumbersWithDigitsAmount(3, [1, 100, -100, 25, 1000])}`)
 
 
 
