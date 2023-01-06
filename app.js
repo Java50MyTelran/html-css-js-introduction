@@ -26,7 +26,7 @@ function evenAscOddDesc(array) {
     //TODO
     //sort array of number in the order even numbers go before the odd ones
     //even numbers should be in the ascending order, odd numbers should be in the descending
-    //example input array [20, -10,333,1000, 552, 7, -7] => [333, 7, -7, 20, -10, 1000, 552]
+    //example input array [20, -10,333,1000, 552, 7, -7] => [-10, 20, 552, 100, 333, 7, -7]
 }
 /*************************************************************************** */
 //reduce
