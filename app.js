@@ -1,6 +1,6 @@
 
 //HW #15
-const array = [20, -10,333,1000, 552, 7, -7, 556, 555];
+const arrays = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [200, -5, -100, 20, 40]];
 /************************************************************************************** */
 //task sort.1
 function evenOddSort(array) {
@@ -28,7 +28,7 @@ function evenAscOddDesc(array) {
     //example input array [20, -10,333,1000, 552, 7, -7] => [-10, 20, 552, 100, 333, 7, -7]
     return array.sort(function(n1, n2) {
       let res = Math.abs(n1 % 2) - Math.abs(n2 % 2);
-      if (res === 0) {
+      if (!res) {
         res = n1 % 2 == 0 ? n1 - n2 : n2 - n1;
       }
       return res;
@@ -75,10 +75,13 @@ function evenAscOddDesc(array) {
     res[2] /= array.length;
     return res;
   }
-  console.log(`array: [${array}] evenOddSort => [${evenOddSort(array)}]`);
+  arrays.forEach(function (array) {
+    console.log(`array: [${array}] evenOddSort => [${evenOddSort(array)}]`);
   console.log(`array: [${array}] oddEvenSort => [${oddEvenSort(array)}]`);
   console.log(`array: [${array}] evenAscOddDescSort => [${evenAscOddDesc(array)}]`);
   console.log(`array: [${array}] getMin => ${getMin(array)}`);
   console.log(`array: [${array}] getMax => ${getMax(array)}`);
   console.log(`array: [${array}] getAverage => ${getAverage(array)}`);
   console.log(`array: [${array}] getMinMaxAvg => [${getMinMaxAvg(array)}]`);
+  })
+  
