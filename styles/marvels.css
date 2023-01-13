@@ -1,0 +1,11 @@
+.word {
+    display: flex;
+
+}
+.letter {
+    margin-left: 1vw;
+    background-color: black;
+    color: black;
+    width: 4vw;
+    height: 4vw
+}
