@@ -11,6 +11,7 @@ const wordsForGuess = ["pappy", "apple", "table", "gold", "silver", "index",
  let trials; 
  let word;
  let flGameOver = false;
+ let finishMessage =''
  //functions
  function startGame() {
      word = getWord();
@@ -20,6 +21,7 @@ const wordsForGuess = ["pappy", "apple", "table", "gold", "silver", "index",
      playAgainElement.style.display = "none";
      gameResultElement.innerHTML = "";
      trialsElement.innerHTML = `remained trials ${trials}`;
+     guessInputElement.value = '';
  }
  function getWord() {
     const index = Math.trunc(Math.random() * wordsForGuess.length);
@@ -45,9 +47,23 @@ const wordsForGuess = ["pappy", "apple", "table", "gold", "silver", "index",
         } else {
             coloringWord(trialWord);
         }
-    }
-    
+        if(checkGameOver(trialWord)) {
+            finishGame()
+        }
+    } 
 
+ }
+ function checkGameOver(trialWord) {
+    let res = true;
+    if(word === trialWord) {
+        finishMessage = `Congratulations, you have guessed the word using ${ word.length + 1 - trials} trials`;
+    } else if(trials === 0) {
+       finishMessage = `Sorry, but you have used all the given trials`
+
+    } else {
+        res = false;
+    }
+    return res;
  }
  function coloringWord(trialWord) {
     const arWord = Array.from(trialWord);
@@ -64,7 +80,10 @@ const wordsForGuess = ["pappy", "apple", "table", "gold", "silver", "index",
     return res;
  }
  function finishGame() {
-    //TODO
+    flGameOver = true;
+    gameResultElement.innerHTML = finishMessage;
+    playAgainElement.style.display = "block";
+
  }
  //actions
  startGame();
