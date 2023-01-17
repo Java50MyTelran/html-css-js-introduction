@@ -15,10 +15,14 @@
         <p id="question"></p>
         <input type="text" readonly onchange="checkWord()" id="word-input"
          placeholder="enter word">
-        <p id="letters-remained"></p>
-        <input type="text" minlength="1" maxlength="1" onchange="processLetter()" 
-        id="letter-input">
-        <button id="guess-button" onclick="takeChance()">guess</button>
+         <div class="letter-row">
+            <label id="letters-remained"></label>
+            <input type="text" minlength="1" maxlength="1" onchange="processLetter()"
+            id="letter-input"> 
+         </div>
+        
+        
+        
 
     </section>
     <section class="word">
@@ -28,6 +32,7 @@
         <p id="result-message"></p>
         <button onclick="startGame()" id="play-again">play again</button>
     </section>
+    <button id="guess-button" onclick="takeChance()">guess</button>
     <script src="src/marvels.js"></script>
 </body>
 </html>

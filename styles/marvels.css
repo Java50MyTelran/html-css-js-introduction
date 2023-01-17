@@ -1,5 +1,6 @@
 .word {
     display: flex;
+    margin-top: 5vh;
 
 }
 .letter {
@@ -8,4 +9,22 @@
     color: black;
     width: 4vw;
     height: 4vw
+}
+#letter-input {
+    width: 4vw;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+}
+.letter-row {
+    margin-top: 4vh;
+}
+#word-input {
+    width: 25vw;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
