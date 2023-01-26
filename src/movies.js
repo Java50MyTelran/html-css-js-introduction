@@ -1,3 +1,12 @@
+
+`<li class="thumbnails-item">
+                <a class="thumbnails-anchor" href="#" data-details-image="images/dog1.jpg" 
+                data-details-title="The most brown dog" data-text-color="red"
+                data-details-bark="sounds/dog1.wav"> 
+                    <img src="images/dog1.jpg" class="thumbnails-image">
+                    <span class="thumbnails-title">Brown</span>
+                </a>
+            </li>`
 const detailsImage = document.querySelector(".details-image");
 const detailsTitle = document.querySelector(".details-title");
 const detailsContainer = document.querySelector(".details-container");
