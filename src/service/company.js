@@ -1,10 +1,10 @@
  
 /* HW #21 */
 // Employe structure and function createEmployee() taken from previous HW
-function createEmployee(id, name, birthYear, salary, city, country) {
+export function createEmployee(id, name, birthYear, salary, city, country) {
     return {id, name, birthYear, salary, address: {city, country}}
 }
-class Company {
+export class Company {
     #employees //object key: <id value>, value: reference to Employee object
     constructor() {
         this.#employees = {};
