@@ -18,13 +18,14 @@ export class Company {
         //returns true if added new employee object
         //returns false if employee with a given id value already exists
         const res = checkEmployeeData(empl);
+        const id = this.#getId();
         if (res === '') {
-            const id = this.#getId();
+            
             empl.id = id;
             this.#employees[id] = empl;
         }
 
-        return res;
+        return {message: res, id};
     }
     removeEmployee(id) {
         //removes employee with a given id from #employees object
@@ -64,6 +65,10 @@ export class Company {
         do {
             id = getRandomNumber(employeeConfig.minId, employeeConfig.maxId + 1);
         }while(this.#employees[id]);
+        return id;
+    }
+    getAllEmployees() {
+        return Object.values(this.#employees);
     }
 }
 function checkEmployeeData(employee) {
