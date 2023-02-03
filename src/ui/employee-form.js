@@ -60,7 +60,12 @@ export class EmployeeForm {
         res[inputElement.name] = inputElement.value;
         return res;
     }, {});
-   handlerFun(employeeData);
+   const message = handlerFun(employeeData);
+   if (message) {
+    alert(message);
+   } else {
+    this.#formElement.reset();
+   }
 })
     }
 }
