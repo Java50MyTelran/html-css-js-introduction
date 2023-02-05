@@ -10,7 +10,7 @@ export class Table {
             throw `wrong parentId ${parentId}`
         }
        parentElement.innerHTML = ` <h3 class="table-logo">${tableName} </h3>
-        <table >
+        <table class="center">
             <thead>
                 <tr>
                     ${getHeader(schema)}                    
