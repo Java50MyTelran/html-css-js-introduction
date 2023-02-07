@@ -15,7 +15,8 @@ const company = new Company();
 const employeeForm = new EmployeeForm("form-section");
 const tableEmployees = new Table("table-section", "Employees", schema);
 const tabs = new Tabs("menu", [{id: "form-section", name: "Add Employee"},
-{id: "table-section", name: "Show Employees"}])
+{id: "table-section", name: "Show Employees"},
+{id: "query-section", name: "Search Employees"} ])
 function addEmployee(employeeData) {
    
     const employee = createEmployee(employeeData.name,

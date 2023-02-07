@@ -46,6 +46,13 @@ export class EmployeeForm {
         this.setCountries();
         this.setCities();
         this.#countriesElement.addEventListener("change", () => this.setCities())
+        this.#formElement.addEventListener('reset', (event) => {
+            event.preventDefault();
+            this.#formElement.reset();
+            this.#inputElements.forEach(e => e.value='')
+            this.setCountries();
+            this.setCities();
+        })
     }
     setCountries() {
         this.#countriesElement.innerHTML = Object.keys(employeeConfig.countries)
@@ -68,6 +75,7 @@ export class EmployeeForm {
     alert(message);
    } else {
     this.#formElement.reset();
+    this.setCities();
    }
 })
     }
