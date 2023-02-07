@@ -1,5 +1,5 @@
 const ACTIVE = 'active';
-const HIDDEN = 'hidden'
+
 export class Tabs {
     #sectionsElements;
     #tabsElements
@@ -17,9 +17,9 @@ export class Tabs {
         })
     }
     #openTabAtIndex(index) {
-        this.#sectionsElements.forEach(element => element.classList.add(HIDDEN));
+        this.#sectionsElements.forEach(element => element.hidden=true);
         this.#tabsElements.forEach(element => element.classList.remove(ACTIVE));
-        this.#sectionsElements[index].classList.remove(HIDDEN);
+        this.#sectionsElements[index].hidden=false;
         this.#tabsElements[index].classList.add(ACTIVE);
     }
 }
