@@ -2,6 +2,7 @@ export const videoConfig = {
     minTime: 7,
     maxTime: 30,
     videoLinks: [
+        "kuku",
         "https://player.vimeo.com/external/377769527.sd.mp4?s=d2fbb91c4b725c7f3cbd506c0b5bbc8c5af30fee&profile_id=164&oauth2_token_id=57447761",
         "https://player.vimeo.com/external/373543833.sd.mp4?s=ef262b4cbee77fdac487f10849311780e267ec43&profile_id=164&oauth2_token_id=57447761",
         "https://player.vimeo.com/external/221214030.sd.mp4?s=1ce4e95cf883b685f68bb0dc4e62309b829663c4&profile_id=164&oauth2_token_id=57447761",

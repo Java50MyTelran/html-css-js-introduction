@@ -12,8 +12,14 @@ export class VideoPlayer {
     setUrl(link) {
         this.#videoElement.src = link
     }
-    start() {
-        this.#videoElement.play();
+    /*async*/ start() {
+        // try {
+        //     await this.#videoElement.play();
+        // } catch(e) {
+        //     alert(`Wrong link ${this.#videoElement.src} - message: ${e}`)
+        // }
+        this.#videoElement.play().catch(e => alert(`Wrong link ${this.#videoElement.src} - message: ${e}`))
+        
     }
     stop() {
         this.#videoElement.pause();
